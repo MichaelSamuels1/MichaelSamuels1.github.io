@@ -286,7 +286,7 @@ p {
 .card-pricing.featured {
     border: 3px solid var(--apple-red);
     transform: scale(1.05);
-    z-rule: 1;
+    clip-rule: 1;
 }
 
 .plan-type {
