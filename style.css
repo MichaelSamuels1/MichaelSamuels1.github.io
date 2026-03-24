@@ -1,0 +1,387 @@
+/* --- Core Reset --- */
+:root {
+    --bg-white: #FFFFFF;
+    --apple-red: #E31837; /* Mastercard-inspired red, works well with white */
+    --text-black: #1D1D1F;
+    --text-grey: #6E6E73;
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --border-radius: 20px;
+    --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    overflow-x: hidden;
+}
+
+/* --- Section Spacing --- */
+section {
+    padding: 100px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--text-black);
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-grey);
+    line-height: 1.6;
+}
+
+/* --- Navigation (Glassmorphism) --- */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 5%;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-black);
+}
+
+.brand span {
+    color: var(--apple-red);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-black);
+    margin-left: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--apple-red);
+}
+
+/* --- Buttons --- */
+.btn-primary, .btn-primary-small {
+    background-color: var(--apple-red);
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn-primary:hover, .btn-primary-small:hover {
+    background-color: #C1132C;
+    transform: translateY(-2px);
+}
+
+.btn-primary-small {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+}
+
+.btn-secondary {
+    text-decoration: none;
+    color: var(--apple-red);
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.btn-primary-outline {
+    background-color: transparent;
+    border: 2px solid var(--apple-red);
+    color: var(--apple-red) !important;
+    padding: 12px 24px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn-primary-outline:hover {
+    background-color: rgba(227, 24, 55, 0.05);
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 150px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero h1 .highlight {
+    color: var(--apple-red);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+}
+
+.badge {
+    background-color: rgba(227, 24, 55, 0.1);
+    color: var(--apple-red);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.hero-graphic {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.server-rack-glass {
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+    border: 1px solid rgba(227, 24, 55, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.server-unit {
+    width: 100%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    position: relative;
+}
+
+.server-unit.active::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: #34C759; /* Green active status */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #34C759;
+}
+
+/* --- Grid & Cards --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.card-glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-glass:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+}
+
+.active-card {
+    background: var(--apple-red);
+    color: white;
+}
+
+.active-card h3, .active-card p {
+    color: white;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.icon-circle.red {
+    background-color: rgba(227, 24, 55, 0.1);
+    color: var(--apple-red);
+}
+
+.icon-circle.white {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+/* --- Pricing Section (E-commerce Marketplace) --- */
+.pricing {
+    background-color: #FBFBFF;
+    border-radius: 40px;
+    margin: 100px 5%;
+}
+
+.pricing-grid {
+    align-items: flex-start;
+}
+
+.card-pricing {
+    background: white;
+    padding: 50px;
+    border-radius: var(--border-radius);
+    border: 1px solid #EAEAEA;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-pricing.featured {
+    border: 3px solid var(--apple-red);
+    transform: scale(1.05);
+    z-rule: 1;
+}
+
+.plan-type {
+    color: var(--apple-red);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card-pricing h3 {
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.price span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-grey);
+}
+
+.card-pricing ul {
+    text-align: left;
+    margin-bottom: 40px;
+    list-style: none;
+    color: var(--text-grey);
+}
+
+.card-pricing ul li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.card-pricing ul li::before {
+    content: '✓';
+    color: var(--apple-red);
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 50px 5%;
+    background-color: #1D1D1F;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: var(--apple-red);
+    text-decoration: none;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column-reverse;
+        padding-top: 100px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        margin-top: 50px;
+    }
+
+    .hero-graphic {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .server-rack-glass {
+        width: 100%;
+        height: 150px;
+        flex-direction: row;
+        width: max-content;
+    }
+
+    .server-unit {
+        width: 40px;
+        height: 100%;
+    }
+
+    .card-pricing.featured {
+        transform: scale(1);
+    }
+}

@@ -1,7 +1,116 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>Hello World!</h1>
-    <p>My site is hosted on GitHub.</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumHomelab - Premium Private Hosting</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#" class="brand">Quantum<span>Homelab</span></a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact" class="btn-primary-small">Start Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">SECURE. PRIVATE. LOCAL.</span>
+            <h1>The Most <span class="highlight">Private</span><br>Cloud Ever.</h1>
+            <p>Your data deserves better than big corporations. Host it on dedicated, local hardware from our optimized homelab network. Real security from the ground up.</p>
+            <div class="hero-btns">
+                <a href="#pricing" class="btn-primary">Explore Hosting Plans</a>
+                <a href="#how" class="btn-secondary">Learn More →</a>
+            </div>
+        </div>
+        <div class="hero-graphic">
+            <div class="server-rack-glass">
+                <div class="server-unit"></div>
+                <div class="server-unit active"></div>
+                <div class="server-unit"></div>
+                <div class="server-unit"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Built for your data sovereignty.</h2>
+        <p>From private files to secure codebases, QuantumHomelab provides a dedicated slice of our optimized local network.</p>
+        <div class="grid">
+            <div class="card-glass">
+                <div class="icon-circle red">󰒔</div>
+                <h3>Personal Cloud</h3>
+                <p>Host files, sync calendars, and manage photos on Nextcloud, hosted directly from our homelab.</p>
+            </div>
+            <div class="card-glass active-card">
+                <div class="icon-circle white">󰒇</div>
+                <h3>API Endpoint Hosting</h3>
+                <p>Run your Dockerized containers or microservices behind our secure proxy.</p>
+            </div>
+            <div class="card-glass">
+                <div class="icon-circle red">󰛳</div>
+                <h3>VPN Gateway</h3>
+                <p>A private WireGuard connection to tunnel your traffic safely through our hub.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2>Secure your digital sovereignty.</h2>
+        <p>A marketplace for localized computing power. Choose the private plan that fits your growth.</p>
+        <div class="grid pricing-grid">
+            <div class="card-pricing">
+                <span class="plan-type">TIER 1</span>
+                <h3>The Vault</h3>
+                <p class="price">$5<span>/mo</span></p>
+                <ul>
+                    <li>100GB Nextcloud Storage</li>
+                    <li>WireGuard Private VPN Access</li>
+                    <li>2TB Monthly Bandwidth</li>
+                </ul>
+                <a href="#" class="btn-primary-outline">Get Plan</a>
+            </div>
+            
+            <div class="card-pricing featured">
+                <span class="plan-type">MOST POPULAR</span>
+                <h3>The Compute Node</h3>
+                <p class="price">$15<span>/mo</span></p>
+                <ul>
+                    <li>500GB SSD Storage</li>
+                    <li>2 Docker Container Slots</li>
+                    <li>Dedicated Reverse Proxy</li>
+                    <li>Uptime Monitoring</li>
+                </ul>
+                <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="btn-primary">Buy Node</a>
+            </div>
+            
+            <div class="card-pricing">
+                <span class="plan-type">TIER 3</span>
+                <h3>The Core</h3>
+                <p class="price">$35<span>/mo</span></p>
+                <ul>
+                    <li>1TB Storage (RAID 10)</li>
+                    <li>Dedicated VPN Endpoint</li>
+                    <li>Full Reverse Proxy Control</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="#" class="btn-primary-outline">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 QuantumHomelab. Hosted locally, powered globally.</p>
+        <p>Payment processing by third-party services. Check our <a href="#">AUP</a>.</p>
+    </footer>
+
+</body>
 </html>
