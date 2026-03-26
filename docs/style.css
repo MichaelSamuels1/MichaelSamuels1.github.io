@@ -156,10 +156,17 @@ p {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-size: 0.95rem;
+    margin-top: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
 }
 
 .btn-secondary:hover {
     color: var(--apple-red-dark);
+    transform: translateX(2px);
 }
 
 .btn-primary-outline {
@@ -2036,10 +2043,29 @@ footer {
     }
 
     .confirmation-actions {
-        flex-direction: column;
+        gap: 12px;
     }
+}
 
-    .form-row {
-        grid-template-columns: 1fr;
+/* Animations for feedback messages */
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
     }
 }

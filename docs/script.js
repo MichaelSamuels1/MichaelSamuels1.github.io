@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPricingToggle();
     initServiceCards();
     initIntersectionObserver();
+    initBuyNowButtons();
     updateCartBadge();
 });
 
@@ -177,6 +178,62 @@ function updateCartBadge() {
         const count = window.QuantumBackend.cartManager.getItemCount();
         cartBadge.textContent = count;
     }
+}
+
+// Handle "Buy Now" buttons on pricing cards
+function initBuyNowButtons() {
+    const buyNowButtons = document.querySelectorAll('.buy-now-btn');
+    
+    buyNowButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const card = button.closest('.card-pricing');
+            if (!card) return;
+            
+            const productId = card.dataset.productId;
+            const product = window.QuantumBackend.getProductById(productId);
+            
+            if (!product) return;
+            
+            // Determine billing type from current toggle state
+            const billingToggle = document.querySelector('.billing-toggle.active');
+            const billing = billingToggle ? billingToggle.dataset.billing : 'monthly';
+            
+            // Add to cart
+            window.QuantumBackend.cartManager.addItem(productId, billing, 1);
+            
+            // Update cart badge
+            updateCartBadge();
+            
+            // Show feedback
+            const feedback = document.createElement('div');
+            feedback.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--apple-red);
+                color: white;
+                padding: 16px 24px;
+                border-radius: 12px;
+                font-weight: 600;
+                z-index: 9999;
+                animation: slideIn 0.3s ease;
+            `;
+            feedback.textContent = `✓ Added ${product.name} to cart!`;
+            document.body.appendChild(feedback);
+            
+            setTimeout(() => {
+                feedback.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => feedback.remove(), 300);
+            }, 2000);
+            
+            // Redirect to checkout
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 500);
+        });
+    });
 }
 
 // Listen for cart updates from other pages
