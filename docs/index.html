@@ -5,29 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QuantumHomelab - Premium Private Hosting</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="glass-nav">
+    <nav class="glass-nav" id="navbar">
         <div class="nav-container">
             <a href="#" class="brand">Quantum<span>Homelab</span></a>
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#pricing">Pricing</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="manifesto.html">Manifesto</a>
-                <a href="#faq">FAQ</a>
                 <a href="#contact" class="btn-primary-small">Start Now</a>
             </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
-            <span class="badge">SECURE. PRIVATE. LOCAL.</span>
-            <h1>The Most <span class="highlight">Private</span><br>Cloud Ever.</h1>
-            <p>Your data deserves better than big corporations. Host it on dedicated, local hardware from our optimized homelab network. Real security from the ground up.</p>
-            <div class="hero-btns">
+            <span class="badge animate-fade-in">SECURE. PRIVATE. LOCAL.</span>
+            <h1 class="animate-fade-in" style="animation-delay: 0.1s">The Most <span class="highlight">Private</span><br>Cloud Ever.</h1>
+            <p class="animate-fade-in" style="animation-delay: 0.2s">Your data deserves better than big corporations. Host it on dedicated, local hardware from our optimized homelab network. Real security from the ground up.</p>
+            <div class="hero-btns animate-fade-in" style="animation-delay: 0.3s">
                 <a href="#pricing" class="btn-primary">Explore Hosting Plans</a>
                 <a href="manifesto.html" class="btn-secondary">Read the Manifesto →</a>
             </div>
@@ -39,79 +40,225 @@
                 <div class="server-unit"></div>
                 <div class="server-unit"></div>
             </div>
+            <div class="hero-glow"></div>
         </div>
     </section>
 
     <section id="services" class="services">
-        <h2>Built for your data sovereignty.</h2>
-        <p>From private files to secure codebases, QuantumHomelab provides a dedicated slice of our optimized local network.</p>
+        <div class="section-header">
+            <h2>Built for your data sovereignty.</h2>
+            <p class="section-subtitle">From private files to secure codebases, QuantumHomelab provides a dedicated slice of our optimized local network.</p>
+        </div>
         <div class="grid">
-            <div class="card-glass">
-                <div class="icon-circle red">󰒔</div>
+            <div class="card-glass hover-lift" data-service="1">
+                <div class="icon-circle red">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.96-3.83c-.375-.48-.11-1.17.42-1.17.32 0 .63.2.79.53L9.7 11.07l2.05-2.63c.16-.33.47-.53.79-.53.53 0 .795.69.42 1.17z"/>
+                    </svg>
+                </div>
                 <h3>Personal Cloud</h3>
                 <p>Host files, sync calendars, and manage photos on Nextcloud, hosted directly from our homelab.</p>
+                <div class="card-features">
+                    <span class="feature-tag">Nextcloud</span>
+                    <span class="feature-tag">100GB+</span>
+                </div>
             </div>
-            <div class="card-glass active-card">
-                <div class="icon-circle white">󰒇</div>
+            <div class="card-glass active-card hover-lift" data-service="2">
+                <div class="icon-circle white">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/><path d="M12 5v14M5 12h14"/>
+                    </svg>
+                </div>
                 <h3>API Endpoint Hosting</h3>
                 <p>Run your Dockerized containers or microservices behind our secure proxy.</p>
+                <div class="card-features">
+                    <span class="feature-tag">Docker</span>
+                    <span class="feature-tag">2-8 Slots</span>
+                </div>
             </div>
-            <div class="card-glass">
-                <div class="icon-circle red">󰛳</div>
+            <div class="card-glass hover-lift" data-service="3">
+                <div class="icon-circle red">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+                    </svg>
+                </div>
                 <h3>VPN Gateway</h3>
                 <p>A private WireGuard connection to tunnel your traffic safely through our hub.</p>
+                <div class="card-features">
+                    <span class="feature-tag">WireGuard</span>
+                    <span class="feature-tag">Military Grade</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works">
+        <div class="section-header">
+            <h2>How It Works</h2>
+            <p class="section-subtitle">From registration to deployment in minutes</p>
+        </div>
+        <div class="steps-container">
+            <div class="step" data-step="1">
+                <div class="step-number">01</div>
+                <h3>Choose Your Plan</h3>
+                <p>Select from our three tiers based on your storage, compute, and bandwidth needs. Upgrade or downgrade anytime.</p>
+                <div class="step-icon">📋</div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step" data-step="2">
+                <div class="step-number">02</div>
+                <h3>Instant Provisioning</h3>
+                <p>Your dedicated infrastructure is deployed automatically. No waiting, no tickets. You control everything.</p>
+                <div class="step-icon">⚡</div>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step" data-step="3">
+                <div class="step-number">03</div>
+                <h3>Deploy Your Apps</h3>
+                <p>Push your containers, connect your VPN, or host your files. Full control via our clean API.</p>
+                <div class="step-icon">🚀</div>
             </div>
         </div>
     </section>
 
     <section id="pricing" class="pricing">
-        <h2>Secure your digital sovereignty.</h2>
-        <p>A marketplace for localized computing power. Choose the private plan that fits your growth.</p>
+        <div class="section-header">
+            <h2>Secure your digital sovereignty.</h2>
+            <p class="section-subtitle">A marketplace for localized computing power. Choose the private plan that fits your growth.</p>
+        </div>
+        <div class="pricing-controls">
+            <button class="billing-toggle active" data-billing="monthly">Monthly Billing</button>
+            <button class="billing-toggle" data-billing="yearly">Annual (Save 20%)</button>
+        </div>
         <div class="grid pricing-grid">
-            <div class="card-pricing">
+            <div class="card-pricing hover-lift" data-tier="starter">
                 <span class="plan-type">TIER 1</span>
                 <h3>The Vault</h3>
-                <p class="price">$5<span>/mo</span></p>
+                <p class="price"><span class="price-amount">$5</span><span>/mo</span></p>
+                <p class="price-note">$60 per year</p>
                 <ul>
                     <li>100GB Nextcloud Storage</li>
                     <li>WireGuard Private VPN Access</li>
                     <li>2TB Monthly Bandwidth</li>
+                    <li>Basic Support</li>
                 </ul>
                 <a href="#" class="btn-primary-outline">Get Plan</a>
             </div>
             
-            <div class="card-pricing featured">
-                <span class="plan-type">MOST POPULAR</span>
+            <div class="card-pricing featured hover-lift" data-tier="pro">
+                <span class="plan-badge">★ MOST POPULAR ★</span>
                 <h3>The Compute Node</h3>
-                <p class="price">$15<span>/mo</span></p>
+                <p class="price"><span class="price-amount">$15</span><span>/mo</span></p>
+                <p class="price-note">$180 per year</p>
                 <ul>
                     <li>500GB SSD Storage</li>
                     <li>2 Docker Container Slots</li>
                     <li>Dedicated Reverse Proxy</li>
                     <li>Uptime Monitoring</li>
+                    <li>Priority Support</li>
                 </ul>
-                <a href="YOUR_STRIPE_PAYMENT_LINK_HERE" class="btn-primary">Buy Node</a>
+                <a href="#" class="btn-primary">Buy Node</a>
             </div>
             
-            <div class="card-pricing">
+            <div class="card-pricing hover-lift" data-tier="enterprise">
                 <span class="plan-type">TIER 3</span>
                 <h3>The Core</h3>
-                <p class="price">$35<span>/mo</span></p>
+                <p class="price"><span class="price-amount">$35</span><span>/mo</span></p>
+                <p class="price-note">$420 per year</p>
                 <ul>
                     <li>1TB Storage (RAID 10)</li>
                     <li>Dedicated VPN Endpoint</li>
                     <li>Full Reverse Proxy Control</li>
                     <li>Priority Support</li>
+                    <li>SLA Guarantee</li>
                 </ul>
                 <a href="#" class="btn-primary-outline">Contact Sales</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 QuantumHomelab. Hosted locally, powered globally.</p>
-        <p>Payment processing by third-party services. Check our <a href="#">AUP</a>.</p>
+    <section id="specs" class="specs-section">
+        <div class="section-header">
+            <h2>Enterprise Infrastructure</h2>
+            <p class="section-subtitle">Built on proven, secure hardware you can trust</p>
+        </div>
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h4>Networking</h4>
+                <ul>
+                    <li><strong>Cisco 3560X</strong> managed switch</li>
+                    <li>EdgeRouter with dual-WAN</li>
+                    <li>99.95% uptime SLA</li>
+                </ul>
+            </div>
+            <div class="spec-card">
+                <h4>Storage</h4>
+                <ul>
+                    <li>Enterprise SSDs with RAID 10</li>
+                    <li>Real-time encrypted backups</li>
+                    <li>Daily integrity checks</li>
+                </ul>
+            </div>
+            <div class="spec-card">
+                <h4>Security</h4>
+                <ul>
+                    <li>Zero-trust architecture</li>
+                    <li>End-to-end encryption</li>
+                    <li>No logs, no tracking</li>
+                </ul>
+            </div>
+            <div class="spec-card">
+                <h4>Compliance</h4>
+                <ul>
+                    <li>GDPR compliant</li>
+                    <li>US-based infrastructure</li>
+                    <li>Transparent data handling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>QuantumHomelab</h4>
+                <p>Decentralized. Sovereign. Yours.</p>
+                <div class="social-links">
+                    <a href="#" title="GitHub">GitHub</a>
+                    <a href="#" title="Twitter">Twitter</a>
+                    <a href="#" title="Discord">Discord</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="manifesto.html">Manifesto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Acceptable Use</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@quantumhomelab.com</p>
+                <p>St. Louis, Missouri, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 QuantumHomelab. Hosted locally, powered globally.</p>
+            <p>Payment processing by third-party services. Check our <a href="#">Terms</a>.</p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
