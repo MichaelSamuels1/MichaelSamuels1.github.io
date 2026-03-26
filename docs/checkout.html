@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - QuantumHomelab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="glass-nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">Quantum<span>Homelab</span></a>
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="manifesto.html">Manifesto</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </nav>
+
+    <section class="checkout-container">
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+
+        <h1>Checkout</h1>
+
+        <div class="checkout-content">
+            <!-- Cart Summary Column -->
+            <div class="checkout-column">
+                <div class="order-summary card-glass">
+                    <h2>Order Summary</h2>
+                    
+                    <div id="cartEmpty" class="empty-cart">
+                        <p>Your cart is empty</p>
+                        <a href="index.html#pricing" class="btn-primary">Browse Plans</a>
+                    </div>
+
+                    <div id="cartItems" style="display: none;">
+                        <div id="cartList" class="cart-items-list"></div>
+                        
+                        <div class="order-totals">
+                            <div class="total-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="total-row">
+                                <span>Tax (8%)</span>
+                                <span id="taxAmount">$0.00</span>
+                            </div>
+                            <div class="total-row total">
+                                <span>Total</span>
+                                <span id="totalAmount">$0.00</span>
+                            </div>
+                        </div>
+
+                        <a href="index.html#pricing" class="btn-secondary-outline">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkout Form Column -->
+            <div class="checkout-column">
+                <form id="checkoutForm" class="checkout-form card-glass">
+                    <!-- Contact Information -->
+                    <fieldset>
+                        <legend>Contact Information</legend>
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </fieldset>
+
+                    <!-- Shipping Address -->
+                    <fieldset>
+                        <legend>Billing Address</legend>
+                        <div class="form-group">
+                            <label for="address">Street Address *</label>
+                            <input type="text" id="address" name="address" required placeholder="123 Main Street">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required placeholder="St. Louis">
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State *</label>
+                                <input type="text" id="state" name="state" required placeholder="MO" maxlength="2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="zip">ZIP Code *</label>
+                            <input type="text" id="zip" name="zip" required placeholder="63101" pattern="^\d{5}(-\d{4})?$">
+                        </div>
+                    </fieldset>
+
+                    <!-- Payment Information -->
+                    <fieldset>
+                        <legend>Payment Information</legend>
+                        <div class="form-group">
+                            <label for="cardName">Cardholder Name *</label>
+                            <input type="text" id="cardName" name="cardName" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" name="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Expiry Date *</label>
+                                <input type="text" id="expiryDate" name="expiryDate" required placeholder="MM/YY" maxlength="5" pattern="^\d{2}/\d{2}$">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV *</label>
+                                <input type="text" id="cvv" name="cvv" required placeholder="123" maxlength="3" pattern="^\d{3}$">
+                            </div>
+                        </div>
+                        <div class="payment-security">
+                            <p>🔒 Your payment is 100% secure and encrypted. We never store your full card information.</p>
+                        </div>
+                    </fieldset>
+
+                    <!-- Terms and Submit -->
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+
+                    <div id="formErrors" class="form-errors" style="display: none;"></div>
+
+                    <button type="submit" class="btn-primary btn-large" id="submitBtn">Complete Purchase</button>
+                    <p class="form-note">You will be able to access your account immediately after purchase.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="confirmation-check">✓</div>
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Your service is now active.</p>
+            
+            <div class="confirmation-details card-glass">
+                <div class="detail-row">
+                    <span class="detail-label">Order ID:</span>
+                    <span class="detail-value" id="orderId">QHL-...</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value" id="orderEmail">—</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Total Paid:</span>
+                    <span class="detail-value" id="orderTotal">$0.00</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value status-confirmed">Confirmed & Active</span>
+                </div>
+            </div>
+
+            <div class="confirmation-message">
+                <p>A confirmation email has been sent to your address. You can:</p>
+                <ul>
+                    <li>Access your account dashboard</li>
+                    <li>Download setup instructions</li>
+                    <li>Configure your services</li>
+                </ul>
+            </div>
+
+            <div class="confirmation-actions">
+                <a href="account.html" class="btn-primary">Go to Dashboard</a>
+                <a href="index.html" class="btn-secondary">Return Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>QuantumHomelab</h4>
+                <p>Decentralized. Sovereign. Yours.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@quantumhomelab.com</p>
+                <p>St. Louis, Missouri, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 QuantumHomelab. Hosted locally, powered globally.</p>
+        </div>
+    </footer>
+
+    <script src="backend.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartDisplay();
+            setupCheckoutForm();
+            formatCardInput();
+        });
+
+        function updateCartDisplay() {
+            const cart = window.QuantumBackend.cartManager.getCart();
+            const emptyCart = document.getElementById('cartEmpty');
+            const cartItems = document.getElementById('cartItems');
+
+            if (cart.length === 0) {
+                emptyCart.style.display = 'block';
+                cartItems.style.display = 'none';
+                return;
+            }
+
+            emptyCart.style.display = 'none';
+            cartItems.style.display = 'block';
+
+            // Build cart list
+            const cartList = document.getElementById('cartList');
+            cartList.innerHTML = cart.map(item => `
+                <div class="cart-item">
+                    <div class="item-info">
+                        <div class="item-name">${item.name}</div>
+                        <div class="item-billing">${item.billing === 'monthly' ? 'Monthly' : 'Annual'}</div>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn" onclick="changeQuantity('${item.id}', '${item.billing}', -1)">−</button>
+                        <span>${item.quantity}</span>
+                        <button class="qty-btn" onclick="changeQuantity('${item.id}', '${item.billing}', 1)">+</button>
+                    </div>
+                    <div class="item-price">${window.QuantumBackend.formatCurrency(item.price * item.quantity)}</div>
+                    <button class="remove-btn" onclick="removeItem('${item.id}', '${item.billing}')" title="Remove">✕</button>
+                </div>
+            `).join('');
+
+            // Update totals
+            document.getElementById('subtotal').textContent = 
+                window.QuantumBackend.formatCurrency(window.QuantumBackend.cartManager.getSubtotal());
+            document.getElementById('taxAmount').textContent = 
+                window.QuantumBackend.formatCurrency(window.QuantumBackend.cartManager.getTax());
+            document.getElementById('totalAmount').textContent = 
+                window.QuantumBackend.formatCurrency(window.QuantumBackend.cartManager.getTotal());
+        }
+
+        function changeQuantity(productId, billing, change) {
+            const cart = window.QuantumBackend.cartManager.getCart();
+            const item = cart.find(i => i.id === productId && i.billing === billing);
+            if (item) {
+                window.QuantumBackend.cartManager.updateQuantity(productId, billing, item.quantity + change);
+                updateCartDisplay();
+            }
+        }
+
+        function removeItem(productId, billing) {
+            window.QuantumBackend.cartManager.removeItem(productId, billing);
+            updateCartDisplay();
+        }
+
+        function setupCheckoutForm() {
+            document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                processCheckout();
+            });
+        }
+
+        function formatCardInput() {
+            const cardNumber = document.getElementById('cardNumber');
+            cardNumber.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\s/g, '');
+                let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
+                e.target.value = formatted;
+            });
+
+            const expiryDate = document.getElementById('expiryDate');
+            expiryDate.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                }
+                e.target.value = value;
+            });
+
+            const cvv = document.getElementById('cvv');
+            cvv.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/\D/g, '').slice(0, 3);
+            });
+        }
+
+        function processCheckout() {
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                zip: document.getElementById('zip').value,
+                cardNumber: document.getElementById('cardNumber').value.replace(/\s/g, ''),
+                expiryDate: document.getElementById('expiryDate').value,
+                cvv: document.getElementById('cvv').value
+            };
+
+            // Validate form
+            const errors = window.QuantumBackend.validateCheckoutForm(formData);
+            const errorDiv = document.getElementById('formErrors');
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = errors.map(e => `<p>• ${e}</p>`).join('');
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            errorDiv.style.display = 'none';
+
+            // Simulate payment processing
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            setTimeout(() => {
+                // Create order
+                const cart = window.QuantumBackend.cartManager.getCart();
+                const order = window.QuantumBackend.orderManager.createOrder(cart, formData);
+
+                // Show confirmation
+                showConfirmation(order, formData.email);
+
+                // Clear cart
+                window.QuantumBackend.cartManager.clearCart();
+
+                // Reset form
+                document.getElementById('checkoutForm').reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Complete Purchase';
+            }, 2000);
+        }
+
+        function showConfirmation(order, email) {
+            document.getElementById('orderId').textContent = order.id;
+            document.getElementById('orderEmail').textContent = email;
+            document.getElementById('orderTotal').textContent = 
+                window.QuantumBackend.formatCurrency(order.total);
+
+            document.getElementById('checkoutForm').style.display = 'none';
+            document.getElementById('cartItems').style.display = 'none';
+            document.getElementById('cartEmpty').style.display = 'none';
+            document.getElementById('confirmationModal').style.display = 'block';
+
+            // Scroll to confirmation
+            document.querySelector('.confirmation-check').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - QuantumHomelab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="glass-nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">Quantum<span>Homelab</span></a>
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="manifesto.html">Manifesto</a>
+                <a href="checkout.html" class="btn-primary-small">
+                    Cart <span id="cart-count" class="cart-badge">0</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </nav>
+
+    <section class="product-hero">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <div class="product-container">
+            <div class="product-image">
+                <div class="product-icon-large" id="productIcon">🔒</div>
+            </div>
+            <div class="product-info">
+                <span class="product-type" id="productType">TIER 1</span>
+                <h1 id="productName">The Vault</h1>
+                <p class="product-tagline" id="productTagline">Personal Cloud Storage</p>
+                
+                <div class="price-section">
+                    <div class="billing-toggle-container">
+                        <button class="billing-toggle active" data-billing="monthly">Monthly</button>
+                        <button class="billing-toggle" data-billing="yearly">Annual (Save 20%)</button>
+                    </div>
+                    <div class="price-display">
+                        <span class="price-amount" id="productPrice">$5</span>
+                        <span class="price-period" id="pricePeriod">/mo</span>
+                    </div>
+                </div>
+
+                <p class="product-description" id="productDescription">Perfect for individuals who need secure cloud storage and privacy.</p>
+
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-input">
+                        <button id="decreaseQty">−</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <button id="increaseQty">+</button>
+                    </div>
+                </div>
+
+                <button id="addToCartBtn" class="btn-primary">Add to Cart</button>
+                <p class="cart-message" id="cartMessage"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-details">
+        <div class="section-header">
+            <h2>Features & Specifications</h2>
+        </div>
+        
+        <div class="details-grid">
+            <div class="details-column">
+                <h3>Included Features</h3>
+                <ul class="features-list" id="featuresList">
+                    <li>Feature loading...</li>
+                </ul>
+            </div>
+            
+            <div class="details-column">
+                <h3>Technical Specifications</h3>
+                <div class="specs-list" id="specsList">
+                    <p>Specs loading...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section">
+        <div class="section-header">
+            <h2>Compare with Other Tiers</h2>
+        </div>
+        <div class="comparison-table">
+            <div class="comparison-row">
+                <div class="comparison-label">Plan Name</div>
+                <div class="comparison-cell" data-plan="vault">The Vault</div>
+                <div class="comparison-cell" data-plan="compute">The Compute Node</div>
+                <div class="comparison-cell" data-plan="core">The Core</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-label">Price (Monthly)</div>
+                <div class="comparison-cell" data-plan="vault">$5</div>
+                <div class="comparison-cell" data-plan="compute">$15</div>
+                <div class="comparison-cell" data-plan="core">$35</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-label">Storage</div>
+                <div class="comparison-cell" data-plan="vault">100GB SSD</div>
+                <div class="comparison-cell" data-plan="compute">500GB SSD</div>
+                <div class="comparison-cell" data-plan="core">1TB RAID-10</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-label">Containers</div>
+                <div class="comparison-cell" data-plan="vault">—</div>
+                <div class="comparison-cell" data-plan="compute">2 Slots</div>
+                <div class="comparison-cell" data-plan="core">4 Slots</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-label">VPN Access</div>
+                <div class="comparison-cell" data-plan="vault">✓</div>
+                <div class="comparison-cell" data-plan="compute">✓</div>
+                <div class="comparison-cell" data-plan="core">Dedicated</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-label">Support</div>
+                <div class="comparison-cell" data-plan="vault">Email</div>
+                <div class="comparison-cell" data-plan="compute">Chat + Email</div>
+                <div class="comparison-cell" data-plan="core">24/7 Phone</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-label">Uptime SLA</div>
+                <div class="comparison-cell" data-plan="vault">99.0%</div>
+                <div class="comparison-cell" data-plan="compute">99.9%</div>
+                <div class="comparison-cell" data-plan="core">99.95%</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">Can I upgrade or downgrade later?</button>
+                <div class="faq-answer">
+                    <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate your billing.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What payment methods do you accept?</button>
+                <div class="faq-answer">
+                    <p>We accept all major credit and debit cards (Visa, Mastercard, American Express). Future payments are processed securely through our encrypted gateway.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is there a free trial?</button>
+                <div class="faq-answer">
+                    <p>We offer a 7-day free trial for all plans. No credit card required. Upgrade anytime within the trial period.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What's included in support?</button>
+                <div class="faq-answer">
+                    <p>All plans include community forum access. Vault includes email support. Compute Node and Core tiers include priority support with faster response times.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I cancel anytime?</button>
+                <div class="faq-answer">
+                    <p>Absolutely. Cancel anytime, no questions asked. Your service continues until the end of your billing period.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>QuantumHomelab</h4>
+                <p>Decentralized. Sovereign. Yours.</p>
+                <div class="social-links">
+                    <a href="#" title="GitHub">GitHub</a>
+                    <a href="#" title="Twitter">Twitter</a>
+                    <a href="#" title="Discord">Discord</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#how-it-works">How It Works</a></li>
+                    <li><a href="manifesto.html">Manifesto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Acceptable Use</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@quantumhomelab.com</p>
+                <p>St. Louis, Missouri, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 QuantumHomelab. Hosted locally, powered globally.</p>
+            <p>Payment processing by third-party services. Check our <a href="#">Terms</a>.</p>
+        </div>
+    </footer>
+
+    <script src="backend.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Product page functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const productId = new URLSearchParams(window.location.search).get('id') || 'vault';
+            loadProductDetails(productId);
+            setupProductPage();
+            updateCartBadge();
+        });
+
+        function loadProductDetails(productId) {
+            const product = window.QuantumBackend.getProductById(productId);
+            if (!product) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('productIcon').textContent = product.image;
+            document.getElementById('productType').textContent = product.type;
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('productTagline').textContent = product.tagline;
+            document.getElementById('productDescription').textContent = product.description;
+
+            // Features list
+            const featuresList = document.getElementById('featuresList');
+            featuresList.innerHTML = product.features.map(f => `<li>${f}</li>`).join('');
+
+            // Specs
+            const specsList = document.getElementById('specsList');
+            specsList.innerHTML = Object.entries(product.specs)
+                .map(([key, value]) => `<div class="spec-row"><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</div>`)
+                .join('');
+
+            // Set initial price
+            updateProductPrice(productId, 'monthly');
+
+            // Store current product ID
+            window.currentProductId = productId;
+        }
+
+        function setupProductPage() {
+            // Billing toggle
+            document.querySelectorAll('.billing-toggle').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.billing-toggle').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    updateProductPrice(window.currentProductId, e.target.dataset.billing);
+                });
+            });
+
+            // Quantity controls
+            document.getElementById('decreaseQty').addEventListener('click', () => {
+                const qty = document.getElementById('quantity');
+                qty.value = Math.max(1, parseInt(qty.value) - 1);
+            });
+
+            document.getElementById('increaseQty').addEventListener('click', () => {
+                const qty = document.getElementById('quantity');
+                qty.value = Math.min(10, parseInt(qty.value) + 1);
+            });
+
+            // Add to cart
+            document.getElementById('addToCartBtn').addEventListener('click', () => {
+                const billing = document.querySelector('.billing-toggle.active').dataset.billing;
+                const quantity = parseInt(document.getElementById('quantity').value);
+                const product = window.QuantumBackend.getProductById(window.currentProductId);
+
+                window.QuantumBackend.cartManager.addItem(window.currentProductId, billing, quantity);
+
+                // Show confirmation
+                const msg = document.getElementById('cartMessage');
+                msg.textContent = `✓ Added ${quantity}x ${product.name} to cart`;
+                msg.style.color = '#E31837';
+                setTimeout(() => { msg.textContent = ''; }, 2000);
+
+                updateCartBadge();
+            });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const item = e.target.parentElement;
+                    const answer = item.querySelector('.faq-answer');
+                    item.classList.toggle('active');
+                    answer.style.display = item.classList.contains('active') ? 'block' : 'none';
+                });
+            });
+        }
+
+        function updateProductPrice(productId, billing) {
+            const product = window.QuantumBackend.getProductById(productId);
+            const priceAmount = document.getElementById('productPrice');
+            const pricePeriod = document.getElementById('pricePeriod');
+
+            if (billing === 'yearly') {
+                priceAmount.textContent = '$' + product.yearlyPrice;
+                pricePeriod.textContent = '/year';
+            } else {
+                priceAmount.textContent = '$' + product.price;
+                pricePeriod.textContent = '/mo';
+            }
+        }
+
+        function updateCartBadge() {
+            const count = window.QuantumBackend.cartManager.getItemCount();
+            document.getElementById('cart-count').textContent = count;
+        }
+
+        // Listen for cart updates from other pages
+        window.addEventListener('cartUpdated', updateCartBadge);
+    </script>
+</body>
+</html>

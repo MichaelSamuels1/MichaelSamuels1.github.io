@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Dashboard - QuantumHomelab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="glass-nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">Quantum<span>Homelab</span></a>
+            <div class="nav-links">
+                <a href="index.html#services">Services</a>
+                <a href="index.html#pricing">Pricing</a>
+                <span class="user-greeting" id="userGreeting"></span>
+                <a href="#" id="logoutBtn" class="btn-primary-small" style="display: none;">Sign Out</a>
+                <a href="#" id="loginBtn" class="btn-primary-small">Sign In</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        </div>
+    </nav>
+
+    <section class="dashboard-container">
+        <div id="notLoggedIn" class="auth-section">
+            <div class="card-glass auth-card">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your QuantumHomelab account to view orders and manage your services.</p>
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Sign In</button>
+                    <button class="tab-btn" data-tab="register">Create Account</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                    </div>
+                    <div id="loginError" class="form-error"></div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="regPasswordConfirm">Confirm Password</label>
+                        <input type="password" id="regPasswordConfirm" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <div id="regError" class="form-error"></div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="loggedIn" style="display: none;">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <h1>Account Dashboard</h1>
+                <p class="subtitle">Manage your services and view order history</p>
+            </div>
+
+            <!-- Account Info Card -->
+            <div class="dashboard-row">
+                <div class="card-glass account-info">
+                    <h3>Account Information</h3>
+                    <div class="info-row">
+                        <span class="info-label">Name:</span>
+                        <span id="displayName">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Email:</span>
+                        <span id="displayEmail">—</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Member Since:</span>
+                        <span id="memberSince">—</span>
+                    </div>
+                    <button id="logoutBtn2" class="btn-secondary">Sign Out</button>
+                </div>
+
+                <div class="card-glass quick-actions">
+                    <h3>Quick Actions</h3>
+                    <a href="index.html#pricing" class="action-link">Browse Plans</a>
+                    <a href="checkout.html" class="action-link">View Cart</a>
+                    <a href="product.html?id=vault" class="action-link">The Vault (Storage)</a>
+                    <a href="product.html?id=compute" class="action-link">The Compute Node</a>
+                    <a href="product.html?id=core" class="action-link">The Core (Enterprise)</a>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div class="dashboard-section">
+                <h2>Order History</h2>
+                <div id="ordersEmpty" class="empty-state">
+                    <p>No orders yet.</p>
+                    <a href="index.html#pricing" class="btn-primary">Browse Plans</a>
+                </div>
+                <div id="ordersList" class="orders-list" style="display: none;"></div>
+            </div>
+
+            <!-- Active Services -->
+            <div class="dashboard-section">
+                <h2>Active Services</h2>
+                <div id="servicesEmpty" class="empty-state">
+                    <p>No active services.</p>
+                </div>
+                <div id="servicesList" class="services-list" style="display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>QuantumHomelab</h4>
+                <p>Decentralized. Sovereign. Yours.</p>
+                <div class="social-links">
+                    <a href="#" title="GitHub">GitHub</a>
+                    <a href="#" title="Twitter">Twitter</a>
+                    <a href="#" title="Discord">Discord</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>support@quantumhomelab.com</p>
+                <p>St. Louis, Missouri, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 QuantumHomelab. Hosted locally, powered globally.</p>
+        </div>
+    </footer>
+
+    <script src="backend.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuthStatus();
+            setupAuthForms();
+            setupLogout();
+        });
+
+        function checkAuthStatus() {
+            const user = window.QuantumBackend.userManager.getCurrentUser();
+
+            if (user) {
+                showDashboard(user);
+            } else {
+                showAuthSection();
+            }
+        }
+
+        function showAuthSection() {
+            document.getElementById('notLoggedIn').style.display = 'block';
+            document.getElementById('loggedIn').style.display = 'none';
+            document.getElementById('loginBtn').style.display = 'inline-block';
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('userGreeting').textContent = '';
+        }
+
+        function showDashboard(user) {
+            document.getElementById('notLoggedIn').style.display = 'none';
+            document.getElementById('loggedIn').style.display = 'block';
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'inline-block';
+            document.getElementById('userGreeting').textContent = `Hi, ${user.name}!`;
+
+            // Display account info
+            document.getElementById('displayName').textContent = user.name;
+            document.getElementById('displayEmail').textContent = user.email;
+            const created = new Date(user.createdAt);
+            document.getElementById('memberSince').textContent = created.toLocaleDateString();
+
+            // Load orders
+            const orders = window.QuantumBackend.orderManager.getCustomerOrders(user.email);
+            loadOrders(orders);
+        }
+
+        function setupAuthForms() {
+            // Tab switching
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+
+                    document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+                    document.getElementById(e.target.dataset.tab + 'Form').classList.add('active');
+                });
+            });
+
+            // Login
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+
+                const result = window.QuantumBackend.userManager.login(email, password);
+
+                if (result.success) {
+                    showDashboard(result.user);
+                } else {
+                    document.getElementById('loginError').textContent = result.message;
+                }
+            });
+
+            // Register
+            document.getElementById('registerForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('regName').value;
+                const email = document.getElementById('regEmail').value;
+                const password = document.getElementById('regPassword').value;
+                const confirm = document.getElementById('regPasswordConfirm').value;
+
+                if (password !== confirm) {
+                    document.getElementById('regError').textContent = 'Passwords do not match';
+                    return;
+                }
+
+                const result = window.QuantumBackend.userManager.register(email, password, name);
+
+                if (result.success) {
+                    showDashboard(result.user);
+                } else {
+                    document.getElementById('regError').textContent = result.message;
+                }
+            });
+
+            // Login button in nav
+            document.getElementById('loginBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.tab-btn[data-tab="login"]').click();
+                document.querySelector('.auth-card').scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        function setupLogout() {
+            const logout = () => {
+                window.QuantumBackend.userManager.logout();
+                showAuthSection();
+            };
+
+            document.getElementById('logoutBtn').addEventListener('click', (e) => {
+                e.preventDefault();
+                logout();
+            });
+
+            document.getElementById('logoutBtn2').addEventListener('click', (e) => {
+                e.preventDefault();
+                logout();
+            });
+        }
+
+        function loadOrders(orders) {
+            const ordersEmpty = document.getElementById('ordersEmpty');
+            const ordersList = document.getElementById('ordersList');
+
+            if (orders.length === 0) {
+                ordersEmpty.style.display = 'block';
+                ordersList.style.display = 'none';
+                return;
+            }
+
+            ordersEmpty.style.display = 'none';
+            ordersList.style.display = 'block';
+
+            ordersList.innerHTML = orders.map(order => `
+                <div class="order-card card-glass">
+                    <div class="order-header">
+                        <div>
+                            <h4>${order.id}</h4>
+                            <p class="order-date">${new Date(order.timestamp).toLocaleDateString()}</p>
+                        </div>
+                        <span class="order-status status-${order.status}">${order.status.toUpperCase()}</span>
+                    </div>
+                    <div class="order-items">
+                        ${order.items.map(item => `
+                            <div class="order-item-row">
+                                <span>${item.quantity}x ${item.name}</span>
+                                <span>${window.QuantumBackend.formatCurrency(item.price * item.quantity)}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="order-total">
+                        <strong>Total: ${window.QuantumBackend.formatCurrency(order.total)}</strong>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

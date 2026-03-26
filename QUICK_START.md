@@ -1,53 +1,48 @@
-# Quick Start Guide
+# 🚀 Quick Start Guide - E-Commerce Platform
 
-## 🎨 What Changed
+## Launch Your Fully Functional Store in 2 Minutes
 
-### Visual Enhancements
-- ✅ Larger, bolder typography (h1: 3.8rem, font-weight: 800)
-- ✅ Advanced shadow & depth effects
-- ✅ Gradient backgrounds and effects
-- ✅ Smooth hover animations on all interactive elements
-- ✅ Parallax scrolling on hero section
-- ✅ Floating glow effect behind server graphic
+### Step 1: Open Homepage
+1. Navigate to `docs/index.html` in your web browser
+2. You should see the QuantumHomelab homepage with three pricing tiers
 
-### New Content Sections
-1. **How It Works** - 3-step process with visual flow
-2. **Enterprise Specs** - Infrastructure details (4 cards)
-3. **Enhanced Footer** - Full navigation and contact info
+### Step 2: Try the Store (2 min test flow)
+1. Scroll to the **Pricing** section
+2. Click **"View Details"** on any plan (try The Vault)
+3. On the product page:
+   - Toggle between **Monthly** and **Annual** pricing
+   - Adjust **Quantity** to 2
+   - Click **"Add to Cart"** ✅
+4. Notice the **Cart badge** in navbar now shows "2"
 
-### Interactive Features
-- ✅ Smooth anchor link scrolling
-- ✅ Navbar shadow on scroll
-- ✅ Mobile menu toggle (hamburger)
-- ✅ Dynamic pricing toggle (monthly/annual)
-- ✅ Service card hover effects
-- ✅ Scroll-triggered fade-in animations
-
-### JavaScript Functionality
-- Navigation initialization
-- Scroll parallax effects
-- Billing period toggle
-- Service card interactions
-- Intersection observer for animations
-
----
-
-## 🚀 Running the Site
-
-1. **Local Testing**: Open `docs/index.html` in a web browser
-2. **With Server**: For best results, use a local server:
-   ```bash
-   # Python 3
-   python -m http.server 8000
-   
-   # Or Node.js (if installed)
-   npx http-server
+### Step 3: Complete a Purchase (1 min)
+1. Click the **Cart icon** in navbar
+2. Review your items on the checkout page
+3. Fill out the form with sample data:
    ```
-   Then visit: `http://localhost:8000/docs/`
+   Name: Test User
+   Email: test@example.com
+   Address: 123 Main St
+   City: St. Louis
+   State: MO
+   ZIP: 63101
+   Card: 4532123456789010
+   Expiry: 12/25
+   CVV: 123
+   ```
+4. Check the **"I agree"** checkbox
+5. Click **"Complete Purchase"** 🎉
+6. See your order confirmation with Order ID!
+
+### Step 4: View Your Account
+1. Click **"Go to Dashboard"**
+2. You'll be registered automatically
+3. See your new order in the history
+4. Click **"Sign Out"** and sign back in with same email
 
 ---
 
-## 📝 Files Modified
+## 📂 What's New
 
 ### `index.html`
 - Added "How It Works" section

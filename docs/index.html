@@ -11,13 +11,16 @@
 
     <nav class="glass-nav" id="navbar">
         <div class="nav-container">
-            <a href="#" class="brand">Quantum<span>Homelab</span></a>
+            <a href="index.html" class="brand">Quantum<span>Homelab</span></a>
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="manifesto.html">Manifesto</a>
-                <a href="#contact" class="btn-primary-small">Start Now</a>
+                <a href="account.html" class="btn-primary-small" id="accountNav">Account</a>
+                <a href="checkout.html" class="btn-primary-small">
+                    Cart <span id="cart-count" class="cart-badge">0</span>
+                </a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
         </div>
@@ -62,6 +65,7 @@
                     <span class="feature-tag">Nextcloud</span>
                     <span class="feature-tag">100GB+</span>
                 </div>
+                <a href="product.html?id=vault" class="card-link">Learn More →</a>
             </div>
             <div class="card-glass active-card hover-lift" data-service="2">
                 <div class="icon-circle white">
@@ -75,6 +79,7 @@
                     <span class="feature-tag">Docker</span>
                     <span class="feature-tag">2-8 Slots</span>
                 </div>
+                <a href="product.html?id=compute" class="card-link">Learn More →</a>
             </div>
             <div class="card-glass hover-lift" data-service="3">
                 <div class="icon-circle red">
@@ -88,6 +93,7 @@
                     <span class="feature-tag">WireGuard</span>
                     <span class="feature-tag">Military Grade</span>
                 </div>
+                <a href="product.html?id=core" class="card-link">Learn More →</a>
             </div>
         </div>
     </section>
@@ -142,7 +148,7 @@
                     <li>2TB Monthly Bandwidth</li>
                     <li>Basic Support</li>
                 </ul>
-                <a href="#" class="btn-primary-outline">Get Plan</a>
+                <a href="product.html?id=vault" class="btn-primary">View Details</a>
             </div>
             
             <div class="card-pricing featured hover-lift" data-tier="pro">
@@ -157,7 +163,7 @@
                     <li>Uptime Monitoring</li>
                     <li>Priority Support</li>
                 </ul>
-                <a href="#" class="btn-primary">Buy Node</a>
+                <a href="product.html?id=compute" class="btn-primary">View Details</a>
             </div>
             
             <div class="card-pricing hover-lift" data-tier="enterprise">
@@ -172,7 +178,7 @@
                     <li>Priority Support</li>
                     <li>SLA Guarantee</li>
                 </ul>
-                <a href="#" class="btn-primary-outline">Contact Sales</a>
+                <a href="product.html?id=core" class="btn-primary">View Details</a>
             </div>
         </div>
     </section>
@@ -259,6 +265,7 @@
         </div>
     </footer>
 
+    <script src="backend.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

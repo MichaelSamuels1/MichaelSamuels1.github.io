@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPricingToggle();
     initServiceCards();
     initIntersectionObserver();
+    updateCartBadge();
 });
 
 // Navigation handling
@@ -169,6 +170,20 @@ function initIntersectionObserver() {
     });
 }
 
+// Update cart badge in navbar
+function updateCartBadge() {
+    const cartBadge = document.getElementById('cart-count');
+    if (cartBadge && window.QuantumBackend) {
+        const count = window.QuantumBackend.cartManager.getItemCount();
+        cartBadge.textContent = count;
+    }
+}
+
+// Listen for cart updates from other pages
+if (typeof window !== 'undefined') {
+    window.addEventListener('cartUpdated', updateCartBadge);
+}
+
 // Utility function to format currency
 function formatCurrency(amount) {
     return new Intl.NumberFormat('en-US', {
@@ -185,5 +200,6 @@ window.QuantumHomelab = {
     initScrollEffects,
     initPricingToggle,
     initServiceCards,
-    initIntersectionObserver
+    initIntersectionObserver,
+    updateCartBadge
 };
